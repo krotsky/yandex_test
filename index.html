@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task manager</title>
+  <style>
+    body {font: 1em arial, sans-serif;}
+    h1, h2, h3 {text-align: center;font-weight: normal;}
+    ul,li {margin: 0;padding: 0;}
+    #createTask {width: 40%;margin: 0 auto;display: block;text-align: center;height: 30px;font-size: 1em;border: 2px solid #fff082;border-radius: 3px;}
+    #createTask:focus {outline-color: #f2f060;}
+    table {width: 100%;text-align: center;}
+    td {width: 30%;vertical-align: top;}
+    td+td {border-left: 2px solid #fff082;}
+    li {list-style: none;position: relative;padding: 20px 0;}
+    .edit {display: none;}
+    li.editing .edit {display: block;position: absolute;top: 18px;left: 0;border: 1px solid #000;}
+  </style>
+</head>
+<body>
+
+<div id="managerApp"></div>
+
+<script type="text/template" id="appView">
+  <h1>Tasks Manager App</h1>
+  <br>
+  <br>
+  
+  <h2>Create the task:</h2>
+  <input id="createTask" type="text" placeholder="for example: ''Start work in Yandex''" autofocus>
+  <br>
+  
+  <h2>Manage tasks:</h2>
+  <table>
+    <tr>
+      <td>
+        <h3>In waiting</h3>
+      </td>
+      <td>
+        <h3>In during</h3>
+      </td>
+      <td>
+        <h3>Is complete</h3>
+      </td>
+    </tr>
+    <tr id="manager">
+      <td>
+        <ul id="waiting"></ul>
+      </td>
+      <td>
+        <ul id="during"></ul>
+      </td>
+      <td>
+        <ul id="completed"></ul>
+      </td>
+    </tr>
+  </table>
+</script>
+
+<script type="text/template" id="taskView">
+  <label><%= title %></label>
+  <input class="edit" type="text" value="<%= title %>">
+  <button class="move" data-attr="waiting"> waiting </button>
+  <button class="move" data-attr="during"> during </button>
+  <button class="move" data-attr="completed"> completed </button>
+  <button id="destroy">X</button>
+</script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<script src="bower_components/Backbone.localStorage/backbone.localStorage-min.js"></script>
+<script src="js/models/TaskModel.js"></script>
+<script src="js/collections/TasksCollection.js"></script>
+<script src="js/views/TaskView.js"></script>
+<script src="js/views/AppView.js"></script>
+<script src="js/app.js"></script>
+<!-- <script src="dist/js/main.js"></script> -->
+
+</body>
+</html>

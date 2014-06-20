@@ -1,0 +1,23 @@
+{
+  "name": "task_manager",
+  "version": "0.0.0",
+  "authors": [
+    "krotsky <rkrotsky@gmail.com>"
+  ],
+  "description": "yandex_test",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "underscore": "latest",
+    "backbone": "latest",
+    "Backbone.localStorage": "latest"
+  }
+}
