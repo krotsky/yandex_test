@@ -4,14 +4,14 @@ yandex_test
   $ git clone https://github.com/krotsky/yandex_test.git
   ```
   
-    ```bash
+  ```bash
   $ cd yandex_test
   ```
   
-    ```bash
+  ```bash
   $ npm install
   ```
   
-    ```bash
+  ```bash
   $ bower install
   ```
