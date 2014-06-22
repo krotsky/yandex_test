@@ -34,7 +34,6 @@ app.template = function (id) {
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));
       this.$input = this.$('.edit');
-      app.view = this;
       return this;
     },
 
@@ -77,7 +76,6 @@ app.template = function (id) {
       if (modelAttr !== buttonAttr) {
         this.model.save({status: buttonAttr});
       }
-      this.render();
     }
 
   });
