@@ -12,18 +12,26 @@ var app = app || {};
     localStorage: new Backbone.LocalStorage('taskStorage'),
 
     sortByStatus: function(tasks) {
-      _.each(tasks.models, function (view) {
-        var view = new app.TaskView({ model: view });
-        if (view.model.get('status') === 'waiting') {
-          $('#waiting').append(view.render().el);
+      var array = [];
+      var obj = {};
+      _.each(tasks.models, function (model) {
+        var status;
+        if (model.get('status') === 'waiting') {
+          status = 'waiting';
         }
-        if (view.model.get('status') === 'during') {
-          $('#during').append(view.render().el);
+        if (model.get('status') === 'during') {
+          status = 'during';
         }
-        if (view.model.get('status') === 'completed') {
-          $('#completed').append(view.render().el);
+        if (model.get('status') === 'completed') {
+          status = 'completed';
         }
+        obj = {
+          status: status,
+          model: model
+        };
+        array.push(obj);
       });
+      return array;
     }
 
   });

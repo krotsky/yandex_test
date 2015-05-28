@@ -32,7 +32,7 @@ app.template = function (id) {
     // render task colection
     render: function () {
       $('#waiting, #during, #completed').html('');
-      app.tasks.sortByStatus(app.tasks);
+      this.appendSorted(app.tasks.sortByStatus(app.tasks));
     },
 
     // add new task
@@ -56,6 +56,22 @@ app.template = function (id) {
 
       app.tasks.create(this.newAttributes());
       this.$input.val('');
+    },
+
+    appendSorted: function(array) {
+      _.each(array, function(obj){
+        var model = obj.model;
+        var view = new app.TaskView({model: model});
+        if (obj.status === 'waiting') {
+          $('#waiting').append(view.render().el);
+        }
+        if (obj.status === 'during') {
+          $('#during').append(view.render().el);
+        }
+        if (obj.status === 'completed') {
+          $('#completed').append(view.render().el);
+        }
+      });
     }
 
   });
